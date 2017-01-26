@@ -24,7 +24,10 @@ function Node(tempX, tempY) {
 		ellipse(this.x, this.y, this.diameter, this.diameter);
 	}
 	Node.prototype.wave = function() {
-		 this.a += this.speed;
+		for( var i = 0; i< angles.length; i++){
+			this.a += this.speed + angles[i]
+		}
+		//  this.a += this.speed;
 		this.y += sin(this.a) * this.scalar;
 	}
 	//this method is for trying to increase the angular velocity of each node, so they all dont move at the same veloctiy
@@ -34,6 +37,11 @@ function Node(tempX, tempY) {
 			angles.push(r);
 		}
 		angles.sort(function(a, b){return a - b})
+	}
+	Node.prototype.apply = function() {
+		for( var i = 0;i< angles.length; i++){
+			this.a += this.speed + angles[i]
+		}
 	}
 	function distSq(a, b) {
 	  		var dx = b.x - a.x;

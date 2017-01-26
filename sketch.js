@@ -11,7 +11,7 @@ function setup() {
 		 nodes[i].display(nodes);
 	}
 	nodes[0].calcpos(nodes);
-
+	nodes[0].apply();
 }
 console.log(balls)
 function draw (){
